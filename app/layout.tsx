@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Geist_Mono } from "next/font/google"
+import { MeshBackground } from "@/components/mesh-background"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
@@ -18,8 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
-        {children}
+      <body className={`font-sans antialiased min-h-screen bg-background`}>
+        <MeshBackground />
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   )
