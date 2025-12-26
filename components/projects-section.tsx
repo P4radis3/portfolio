@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge"
 import { projects } from "@/data/projects"
 
 export function ProjectsSection() {
-  const base = process.env.NEXT_PUBLIC_BASE_PATH || ''
   return (
     <section id="projects" className="py-24 px-6 lg:px-12">
       <div className="max-w-3xl mx-auto">
@@ -27,7 +26,7 @@ export function ProjectsSection() {
                   >
                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10" />
                     <img
-                      src={`${base}${project.image || '/placeholder.svg'}`}
+                      src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       className="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
                     />
@@ -60,6 +59,15 @@ export function ProjectsSection() {
                     ))}
                   </ul>
                   <div className={`flex items-center gap-4 ${index % 2 === 1 ? "justify-start" : "md:justify-end"}`}>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold text-muted-foreground shadow transition hover:-translate-y-0.5 hover:shadow-lg hover:text-primary"
+                      aria-label="Open Live Demo"
+                    >
+                      <ExternalLink className="h-5 w-5" />
+                    </a>
                     {project.github && (
                       <a
                         href={project.github}
@@ -71,15 +79,6 @@ export function ProjectsSection() {
                         <Github className="h-5 w-5" />
                       </a>
                     )}
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                      aria-label="Live Demo"
-                    >
-                      <ExternalLink className="h-5 w-5" />
-                    </a>
                   </div>
                 </div>
               </div>
