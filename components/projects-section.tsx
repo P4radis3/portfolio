@@ -1,5 +1,6 @@
 import { ExternalLink, Github } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { BasePath } from "@/lib/utils"
 import { projects } from "@/data/projects"
 
 export function ProjectsSection() {
@@ -26,7 +27,7 @@ export function ProjectsSection() {
                   >
                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10" />
                     <img
-                      src={project.image || "/placeholder.svg"}
+                      src={BasePath(project.image || "/placeholder.svg")}
                       alt={project.title}
                       className="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
                     />
